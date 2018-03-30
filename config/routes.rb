@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'gems/fetch_from_repo'
-
   root to: "visitors#index"
   get "/auth/:provider/callback" => "sessions#create"
   get "/signin" => "sessions#new", as: :signin
