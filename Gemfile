@@ -21,6 +21,8 @@ gem "uglifier", ">= 1.3.0"
 gem "omniauth"
 gem "omniauth-google-oauth2"
 
+gem "octokit"
+
 group :development do
   gem "better_errors"
   gem "listen", ">= 3.0.5", "< 3.2"
