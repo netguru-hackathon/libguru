@@ -26,6 +26,8 @@ gem "octokit"
 gem "httparty"
 gem "oj"
 
+gem "crono"
+
 # background jobs
 gem "redis-namespace", "~> 1.5.3"
 gem "sidekiq"
