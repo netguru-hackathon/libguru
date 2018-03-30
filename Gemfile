@@ -26,9 +26,11 @@ gem "omniauth-google-oauth2"
 # github api
 gem "octokit"
 
+# fetching libraries
 gem "httparty"
 gem "oj"
 
+# crono jobs
 gem "crono"
 gem "daemons"
 
