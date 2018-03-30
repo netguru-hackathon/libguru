@@ -8,12 +8,8 @@ class FetchGemfileFromRepo
   end
 
   def call
-    begin
-      gemfile_content = Octokit.client.contents(repo_name, path: "Gemfile").content
-      decode gemfile_content
-    rescue Octokit::NotFound => error
-      false
-    end
+    gemfile_content = Octokit.client.contents("netguru/#{repo_name}", path: "Gemfile").content
+    decode gemfile_content
   end
 
   private
