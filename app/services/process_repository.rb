@@ -24,7 +24,7 @@ class ProcessRepository < ApplicationService
   end
 
   def parse_gemfile(gemfile_content)
-    GemfileParser.call(gemfile_content)
+    ParseGemfile.call(gemfile_content)
   end
 
   def persist_libraries(gem_names)
