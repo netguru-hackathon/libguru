@@ -3,11 +3,11 @@
 class ProcessRepository < ApplicationService
   def call(repository_data)
     Success(repository_data)
-      .bind(:persist_repository)
-      .bind(:fetch_gemfile_from_repo)
-      .bind(:parse_gemfile)
-      .bind(:persist_libraries)
-      .bind(:persist_dependencies)
+      .bind(method(:persist_repository))
+      .bind(method(:fetch_gemfile_from_repo))
+      .bind(method(:parse_gemfile))
+      .bind(method(:persist_libraries))
+      .bind(method(:persist_dependencies))
   end
 
   private
