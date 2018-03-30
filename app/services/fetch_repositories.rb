@@ -1,13 +1,9 @@
 # frozen_string_literal: true
 
-class FetchRepositories
+class FetchRepositories < ApplicationService
   def call
-    project_names
-  end
-
-  private
-
-  def project_names
-    Octokit.org_repos("netguru").map(&:full_name)
+    Success(Octokit.org_repos("netguru").map(&:full_name))
+  rescue Octokit::NotFound => e
+    Failure(e)
   end
 end
