@@ -9,17 +9,19 @@
 puts "Not cool bro! But as you wish, I am fabricating some gems..."
 
 3.times do
+  name = FFaker::Name.first_name.downcase
   Library.create(
-    name: Faker::Witcher.monster,
-    url: Faker::Internet.url("github.com"),
+    name: name,
+    url: "http://github.com/netguru/#{name}",
     dependencies_count: rand(10)
   )
 end
 
 3.times do
+  name = FFaker::Name.last_name.downcase
   Repository.create(
-    name: Faker::Pokemon.name,
-    url: Faker::Internet.url("github.com")
+    name: name,
+    url: "http://github.com/netguru/#{name}"
   )
 end
 
