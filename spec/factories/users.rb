@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :user do
     name "Test User"
@@ -5,8 +7,7 @@ FactoryBot.define do
     password "please123"
 
     trait :admin do
-      role 'admin'
+      role "admin"
     end
-
   end
 end

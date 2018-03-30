@@ -1,5 +1,6 @@
-describe User do
+# frozen_string_literal: true
 
+describe User do
   before(:each) { @user = FactoryBot.create(:user) }
 
   subject { @user }
@@ -7,7 +8,6 @@ describe User do
   it { should respond_to(:name) }
 
   it "#name returns a string" do
-    expect(@user.name).to match 'Test User'
+    expect(@user.name).to match "Test User"
   end
-
 end
