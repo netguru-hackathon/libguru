@@ -26,15 +26,20 @@ gem "omniauth-google-oauth2"
 # github api
 gem "octokit"
 
+# fetching libraries
 gem "httparty"
 gem "oj"
 
+# crono jobs
 gem "crono"
 gem "daemons"
 
 # background jobs
 gem "redis-namespace", "~> 1.5.3"
 gem "sidekiq"
+
+# fake seed data
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
 group :development do
   gem "better_errors"
