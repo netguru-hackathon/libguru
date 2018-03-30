@@ -294,7 +294,7 @@ DEPENDENCIES
   pry-rescue
   puma (~> 3.7)
   pundit
-  rails (~> 5.1.5)
+  rails (~> 5.1.6)
   rspec-rails
   rubocop
   sass-rails (~> 5.0)
