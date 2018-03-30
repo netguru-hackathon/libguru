@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-describe GemfileParser do
-  subject { GemfileParser.new(lockfile).call }
+describe ParseGemfile do
+  subject { ParseGemfile.call(lockfile).value }
   let(:lockfile_path) { Rails.root.join("spec", "fixtures", "files", "example_gemfile.lock") }
   let(:lockfile) { File.read(lockfile_path) }
 
