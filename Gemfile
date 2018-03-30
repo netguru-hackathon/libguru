@@ -8,6 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 gem "bootstrap-sass"
+gem "dry-monads"
 gem "haml-rails"
 gem "jbuilder", "~> 2.5"
 gem "pg", "~> 0.18"
@@ -18,13 +19,18 @@ gem "sass-rails", "~> 5.0"
 gem "simple_form"
 gem "uglifier", ">= 1.3.0"
 
+# google omniauth
 gem "omniauth"
 gem "omniauth-google-oauth2"
 
+# github api
 gem "octokit"
 
 gem "httparty"
 gem "oj"
+
+gem "crono"
+gem "daemons"
 
 # background jobs
 gem "redis-namespace", "~> 1.5.3"
