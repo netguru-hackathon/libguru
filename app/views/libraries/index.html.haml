@@ -1,17 +1,14 @@
 %h3 Libraries in Netguru
 
-.container
-  .row
-    .col-md-6
-      %table.table
-        %thead
-          %tr
-            %th.col #
-            %th.col Library
-            %th.col Usages
-        %tbody
-          - @ranking.each_with_index do |library, index|
-            %tr
-              %td(scope="row")= index + 1
-              %td= library.name
-              %td= library.dependencies_count
+%table.table
+  %thead
+    %tr
+      %th.col #
+      %th.col Library
+      %th.col Usages
+  %tbody
+    - @ranking.each_with_index do |library, index|
+      %tr
+        %td(scope="row")= index + 1
+        %td= link_to library.name, library
+        %td= library.dependencies_count

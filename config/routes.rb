@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :libraries
+
   root to: "libraries#index"
   get "/auth/:provider/callback" => "sessions#create"
   get "/signin" => "sessions#new", as: :signin

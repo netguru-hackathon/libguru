@@ -1,0 +1,16 @@
+%h3= @library.name
+
+%p= link_to @library.url, @library.url
+
+%table.table
+  %thead
+    %tr
+      %th.col #
+      %th.col Repository
+      %th.col Url
+  %tbody
+    - @repositories_with_library.each_with_index do |repository, index|
+      %tr
+        %td(scope="row")= index + 1
+        %td= repository.name
+        %td= link_to repository.url, repository.url
