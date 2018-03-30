@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20180330080901) do
   enable_extension "plpgsql"
 
   create_table "dependencies", force: :cascade do |t|
-    t.bigint "repository_id"
-    t.bigint "library_id"
+    t.bigint "repository_id", null: false
+    t.bigint "library_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["library_id"], name: "index_dependencies_on_library_id"
@@ -25,15 +25,15 @@ ActiveRecord::Schema.define(version: 20180330080901) do
   end
 
   create_table "libraries", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "repositories", force: :cascade do |t|
-    t.string "name"
-    t.string "url"
+    t.string "name", null: false
+    t.string "url", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
