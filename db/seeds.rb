@@ -11,7 +11,7 @@ puts 'Not cool bro! But as you wish, I am fabricating some gems...'
 libraries = Array.new
 repositories = Array.new
 
-5.times do
+3.times do
   Library.create(
     name: Faker::Witcher.monster,
     url: Faker::Internet.url('github.com'),
@@ -19,7 +19,7 @@ repositories = Array.new
   )
 end
 
-5.times do
+3.times do
   Repository.create(
     name: Faker::Pokemon.name,
     url: Faker::Internet.url('github.com')
