@@ -38,7 +38,7 @@ group :development do
   gem "web-console", ">= 3.3.0"
 end
 
-group :development do
+group :development, :test do
   gem "pry-rails"
   gem "pry-rescue"
   gem "rubocop"
