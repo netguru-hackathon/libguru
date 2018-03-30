@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ProcessRepositories < ApplicationService
+class FetchAndProcessRepositories < ApplicationService
   def call
     FetchRepositories.call
       .bind(method(:process_repositories))

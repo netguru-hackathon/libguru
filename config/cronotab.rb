@@ -14,4 +14,4 @@
 # end
 #
 
-Crono.perform(CallServiceObjectJob, ProcessRepositories).every(1.day, at: "04:00")
+Crono.perform(CallServiceObjectJob, FetchAndProcessRepositories).every(1.day, at: "04:00")
