@@ -12,7 +12,7 @@ class FetchGemfileFromRepo < ApplicationService
   private
 
   def fetch_encoded_content(repo_name)
-    Success(Octokit.client.contents(repo_name, path: "Gemfile").content)
+    Success(Octokit.client.contents(repo_name, path: "Gemfile.lock").content)
   rescue Octokit::NotFound => e
     Failure(e)
   end

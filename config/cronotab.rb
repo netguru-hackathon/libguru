@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 # cronotab.rb — Crono configuration file
-#
+
 # Here you can specify periodic jobs and schedule.
 # You can use ActiveJob's jobs from `app/jobs/`
 # You can use any class. The only requirement is that
@@ -11,5 +13,5 @@
 #   end
 # end
 #
-# Crono.perform(TestJob).every 2.days, at: '15:30'
-#
+
+Crono.perform(CallServiceObjectJob, FetchAndProcessRepositories).every(1.day, at: "04:00")

@@ -26,9 +26,11 @@ gem "omniauth-google-oauth2"
 # github api
 gem "octokit"
 
+# fetching libraries
 gem "httparty"
 gem "oj"
 
+# crono jobs
 gem "crono"
 gem "daemons"
 
@@ -48,13 +50,13 @@ end
 group :development, :test do
   gem "pry-rails"
   gem "pry-rescue"
+  gem "ffaker"
 end
 
 group :test do
   gem "capybara", "~> 2.13"
   gem "database_cleaner"
   gem "factory_bot_rails"
-  gem "ffaker"
   gem "launchy"
   gem "rspec-rails"
   gem "selenium-webdriver"
