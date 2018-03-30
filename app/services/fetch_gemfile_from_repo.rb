@@ -18,6 +18,8 @@ class FetchGemfileFromRepo < ApplicationService
 
   def fetch_encoded_content(repo_name)
     Success(Octokit.client.contents(repo_name, path: "Gemfile").content)
+  rescue Octokit::NotFound => e
+    Failure(e)
   end
 
   def decode(encoded_content)
