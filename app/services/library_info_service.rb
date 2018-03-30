@@ -3,20 +3,15 @@
 require "oj"
 
 class LibraryInfoService < ApplicationService
-  def initialize(library)
-    @library = library
-  end
-
-  def call
-    fetch_library_data
+  def call(library)
+    Success(library)
+    .bind(method(:fetch_library_data))
       .bind(method(:load_json))
   end
 
   private
 
-  attr_reader :library
-
-  def fetch_library_data
+  def fetch_library_data(library)
     Success(HTTParty.get("http://rubygems.org/api/v1/gems/#{library}.json"))
   rescue => e
     Failure(e)
