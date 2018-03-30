@@ -6,6 +6,6 @@ class ApplicationService
   include Dry::Monads::Result::Mixin
 
   def self.call(*args)
-    new(*args).call
+    new.call(*args)
   end
 end
