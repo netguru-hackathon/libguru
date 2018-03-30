@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20180330092438) do
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "dependencies_count", default: 0, null: false
   end
 
   create_table "repositories", force: :cascade do |t|
