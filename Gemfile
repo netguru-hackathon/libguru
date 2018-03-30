@@ -26,6 +26,10 @@ gem "octokit"
 gem "httparty"
 gem "oj"
 
+# background jobs
+gem "redis-namespace", "~> 1.5.3"
+gem "sidekiq"
+
 group :development do
   gem "better_errors"
   gem "listen", ">= 3.0.5", "< 3.2"
