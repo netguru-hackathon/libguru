@@ -14,6 +14,6 @@ class FetchAndProcessRepositories < ApplicationService
   end
 
   def schedule_job(repository_data)
-    CallServiceObjectJob.perform_later(ProcessRepository, repository_data)
+    CallServiceObjectJob.perform_later("ProcessRepository", repository_data)
   end
 end
