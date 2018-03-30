@@ -8,7 +8,7 @@ class SaveLibraryToDatabase
 
   def call
     return if repo.nil?
-    if library.present?
+    if library
       repo.libraries << library
     else
       library_info = LibraryInfoService.call(library_name)
