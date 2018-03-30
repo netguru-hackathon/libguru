@@ -6,15 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-puts 'Not cool bro! But as you wish, I am fabricating some gems...'
-
-libraries = Array.new
-repositories = Array.new
+puts "Not cool bro! But as you wish, I am fabricating some gems..."
 
 3.times do
   Library.create(
     name: Faker::Witcher.monster,
-    url: Faker::Internet.url('github.com'),
+    url: Faker::Internet.url("github.com"),
     dependencies_count: rand(10)
   )
 end
@@ -22,7 +19,7 @@ end
 3.times do
   Repository.create(
     name: Faker::Pokemon.name,
-    url: Faker::Internet.url('github.com')
+    url: Faker::Internet.url("github.com")
   )
 end
 
@@ -37,4 +34,4 @@ Dependency.create(
   ],
 )
 
-puts 'Fake gems (libraries) created. Don\'t try to sell them!'
+puts "Fake gems (libraries) created. Don\'t try to sell them!"
