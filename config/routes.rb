@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :libraries
+  resources :libraries, only: [:index, :show]
 
   root to: "libraries#index"
   get "/auth/:provider/callback" => "sessions#create"
