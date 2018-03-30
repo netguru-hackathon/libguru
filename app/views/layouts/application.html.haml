@@ -5,7 +5,7 @@
     %title= content_for?(:title) ? yield(:title) : 'Libguru'
     %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Libguru'}"}
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
+    = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
     %header
