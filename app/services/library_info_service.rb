@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+require "oj"
+
 # Example response:
 # {"name"=>"rails",
 #  "downloads"=>126215899,
@@ -32,16 +36,24 @@
 #      {"name"=>"bundler", "requirements"=>">= 1.3.0"},
 #      {"name"=>"railties", "requirements"=>"= 5.1.6"},
 #      {"name"=>"sprockets-rails", "requirements"=>">= 2.0.0"}]}}
+class LibraryInfoService < ApplicationService
+  def call(library)
+    Success(library)
+      .bind(method(:fetch_library_data))
+      .bind(method(:load_json))
+  end
 
-require 'oj'
+  private
 
-class LibraryInfoService
+  def fetch_library_data(library)
+    Success(HTTParty.get("http://rubygems.org/api/v1/gems/#{library}.json"))
+  rescue => e
+    Failure(e)
+  end
 
-  include HTTParty
-  base_uri "rubygems.org/api/v1/gems"
-
-  def self.call(library)
-    response = get("/#{library}.json")
-    Oj.load(response.to_s)
+  def load_json(response)
+    Success(Oj.load(response.to_s))
+  rescue => e
+    Failure(e)
   end
 end
