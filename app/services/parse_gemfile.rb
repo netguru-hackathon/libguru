@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class GemfileParser < ApplicationService
+class ParseGemfile < ApplicationService
   def call(lockfile)
     Success(lockfile)
       .bind(method(:read_dependencies))
