@@ -1,22 +1,23 @@
 # frozen_string_literal: true
 
-class FetchGemfileFromRepo
+class FetchGemfileFromRepo < ApplicationService
   require "base64"
 
-  def initialize(repo_name)
-    @repo_name = repo_name
-  end
-
-  def call
-    gemfile_content = Octokit.client.contents("netguru/#{repo_name}", path: "Gemfile").content
-    decode gemfile_content
+  def call(repo_name)
+    Success(repo_name)
+      .bind(method(:fetch_encoded_content))
+      .bind(method(:decode))
   end
 
   private
 
-  attr_reader :repo_name
+  def fetch_encoded_content(repo_name)
+    Success(Octokit.client.contents(repo_name, path: "Gemfile").content)
+  rescue Octokit::NotFound => e
+    Failure(e)
+  end
 
-  def decode(string)
-    Base64.decode64(string)
+  def decode(encoded_content)
+    Success(Base64.decode64(encoded_content))
   end
 end
