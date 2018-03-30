@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # cronotab.rb — Crono configuration file
 
 # Here you can specify periodic jobs and schedule.
@@ -13,4 +14,4 @@
 # end
 #
 
-Crono.perform(CallServiceObjectJob, UpdateRepositoriesService).every(1.days, at: "04:00")
+Crono.perform(CallServiceObjectJob, ProcessRepositories).every(1.day, at: "04:00")
