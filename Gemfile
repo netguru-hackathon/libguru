@@ -24,6 +24,7 @@ gem "omniauth-google-oauth2"
 gem "octokit"
 
 gem "httparty"
+gem "oj"
 
 group :development do
   gem "better_errors"

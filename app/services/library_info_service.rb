@@ -1,3 +1,5 @@
+require 'oj'
+
 class LibraryInfoService
 
   include HTTParty
@@ -5,7 +7,6 @@ class LibraryInfoService
 
   def self.call(library)
     response = get("/#{library}.json")
-    JSON.parse(response.to_s)
+    Oj.load(response.to_s)
   end
-
 end
