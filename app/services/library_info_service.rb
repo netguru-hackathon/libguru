@@ -47,13 +47,13 @@ class LibraryInfoService < ApplicationService
 
   def fetch_library_data(library)
     Success(HTTParty.get("http://rubygems.org/api/v1/gems/#{library}.json"))
-  rescue => e
+  rescue StandardError => e
     Failure(e)
   end
 
   def load_json(response)
     Success(Oj.load(response.to_s))
-  rescue => e
+  rescue StandardError => e
     Failure(e)
   end
 end

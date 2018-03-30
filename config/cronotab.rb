@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # cronotab.rb — Crono configuration file
 #
 # Here you can specify periodic jobs and schedule.
