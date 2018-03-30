@@ -2,18 +2,12 @@
 
 class FetchRepositories
   def call
-    project_names.compact
+    project_names
   end
 
   private
 
   def project_names
-    Octokit.org_repos("netguru").map do |repo|
-      repo.full_name if ruby_project?(repo)
-    end
-  end
-
-  def ruby_project?(repo)
-    repo.language == "Ruby"
+    Octokit.org_repos("netguru").map(&:full_name)
   end
 end

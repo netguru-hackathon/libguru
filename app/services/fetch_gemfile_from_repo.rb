@@ -8,8 +8,12 @@ class FetchGemfileFromRepo
   end
 
   def call
-    gemfile_content = Octokit.client.contents(repo_name, path: "Gemfile").content
-    decode gemfile_content
+    begin
+      gemfile_content = Octokit.client.contents(repo_name, path: "Gemfile").content
+      decode gemfile_content
+    rescue Octokit::NotFound => error
+      false
+    end
   end
 
   private
