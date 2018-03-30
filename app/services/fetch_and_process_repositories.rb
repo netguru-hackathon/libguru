@@ -8,12 +8,12 @@ class FetchAndProcessRepositories < ApplicationService
 
   private
 
-  def process_repositories(repository_names)
-    repository_names.each { |repository_name| schedule_job(repository_name) }
+  def process_repositories(repository_data_array)
+    repository_data_array.each { |repository_data| schedule_job(repository_data) }
     Success(nil)
   end
 
-  def schedule_job(repository_name)
-    CallServiceObjectJob.perform_later(ProcessRepository, repository_name)
+  def schedule_job(repository_data)
+    CallServiceObjectJob.perform_later(ProcessRepository, repository_data)
   end
 end

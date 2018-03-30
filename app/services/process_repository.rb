@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class ProcessRepository < ApplicationService
-  def call(repository_name)
-    Success(repository_name)
+  def call(repository_data)
+    Success(repository_data)
       .bind(:persist_repository)
       .bind(:fetch_gemfile_from_repo)
       .bind(:parse_gemfile)
@@ -14,8 +14,8 @@ class ProcessRepository < ApplicationService
 
   attr_reader :repository
 
-  def persist_repository(repository_name)
-    PersistRepository.call(repository_name)
+  def persist_repository(repository_data)
+    PersistRepository.call(repository_data)
   end
 
   def fetch_gemfile_from_repo(repository)
