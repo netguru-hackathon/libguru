@@ -27,7 +27,7 @@ gem "httparty"
 gem "oj"
 
 gem "crono"
-gem 'daemons'
+gem "daemons"
 
 # background jobs
 gem "redis-namespace", "~> 1.5.3"
