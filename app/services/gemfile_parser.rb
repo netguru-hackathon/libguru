@@ -1,10 +1,12 @@
-class GemfileParser
+# frozen_string_literal: true
+
+class GemfileParser < ApplicationService
   def initialize(lockfile)
     @lockfile = lockfile
   end
 
   def call
-    read_dependencies
+    Success(read_dependencies)
   end
 
   private
