@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Library, type: :model do
+describe Library, type: :model do
   it { should have_db_column(:name).of_type(:string) }
   it { should have_db_column(:url).of_type(:string) }
   it { should have_db_column(:info).of_type(:text) }
@@ -11,4 +11,3 @@ RSpec.describe Library, type: :model do
 
   it { should validate_presence_of(:name) }
 end
-

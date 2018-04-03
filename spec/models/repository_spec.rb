@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Repository, type: :model do
+describe Repository, type: :model do
   it { should have_db_column(:name).of_type(:string) }
   it { should have_db_column(:url).of_type(:string) }
 
