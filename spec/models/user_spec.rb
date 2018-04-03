@@ -1,13 +1,14 @@
 # frozen_string_literal: true
+require "rails_helper"
 
-describe User do
+RSpec.describe User, type: :model do
   before(:each) { @user = FactoryBot.create(:user) }
-
   subject { @user }
 
-  it { should respond_to(:name) }
+  it { should have_db_column(:name).of_type(:string) }
+  it { should have_db_column(:provider).of_type(:string) }
+  it { should have_db_column(:uid).of_type(:string) }
+  it { should have_db_column(:role).of_type(:integer) }
 
-  it "#name returns a string" do
-    expect(@user.name).to match "Test User"
-  end
+  it { should define_enum_for(:role).with([:user, :vip, :admin]) }
 end
