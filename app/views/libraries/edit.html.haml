@@ -1,0 +1,9 @@
+= simple_form_for @library do |f|
+  .row
+    .col-md-3
+      = f.input :category_id, collection: Category.pluck(:name, :id)
+    .col-md-3
+      = link_to 'Add category', new_category_path
+  .row
+    .col-md-12
+      = f.button :submit

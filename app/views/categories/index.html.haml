@@ -1,0 +1,30 @@
+%h3 Libraries by Categories
+
+.container
+  .row
+    .col-md-6
+      %table.table
+        %thead
+          %tr
+            %th.col Category
+            %th.col Library
+            %th.col Usages
+        %tbody
+          - @categories.each do |category|
+            - if category.libraries.present?
+              %tr
+                %td= category.name
+              - category.libraries.each do |library|
+                %tr
+                  %td
+                  %td= library.name
+                  %td= library.dependencies_count
+          - if @uncategorised_libs.present?
+            %tr
+              %td Uncategorised gems
+            - @uncategorised_libs.each do |library|
+              %tr
+                %td
+                %td= library.name
+                %td= library.dependencies_count
+                %td= link_to 'Add category', edit_library_path(library)
