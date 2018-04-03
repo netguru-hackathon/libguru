@@ -17,7 +17,7 @@
               - category.libraries.each do |library|
                 %tr
                   %td
-                  %td= library.name
+                  %td= link_to library.name, library
                   %td= library.dependencies_count
           - if @uncategorised_libs.present?
             %tr
