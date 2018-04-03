@@ -10,12 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20180330100516) do
-
+ActiveRecord::Schema.define(version: 20180330134447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "crono_jobs", force: :cascade do |t|
     t.string "job_id", null: false
@@ -41,8 +45,10 @@ ActiveRecord::Schema.define(version: 20180330100516) do
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "info"
     t.integer "dependencies_count", default: 0, null: false
+    t.bigint "category_id"
+    t.text "info"
+    t.index ["category_id"], name: "index_libraries_on_category_id"
   end
 
   create_table "repositories", force: :cascade do |t|
@@ -61,4 +67,5 @@ ActiveRecord::Schema.define(version: 20180330100516) do
     t.integer "role"
   end
 
+  add_foreign_key "libraries", "categories"
 end
