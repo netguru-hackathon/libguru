@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe User, type: :model do
+describe User, type: :model do
   before(:each) { @user = FactoryBot.create(:user) }
   subject { @user }
 

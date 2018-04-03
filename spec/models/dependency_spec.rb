@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Dependency, type: :model do
+describe Dependency, type: :model do
   before(:each) { @dependency = FactoryBot.create(:dependency) }
   subject { @dependency }
 
